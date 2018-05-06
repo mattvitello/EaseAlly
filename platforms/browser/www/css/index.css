@@ -1,0 +1,371 @@
+@font-face {
+  font-family: "Open Sans Condensed";
+  src: url(fonts/OpenSansCondensed-Bold.ttf) format("truetype");
+}
+
+.noselect, p {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.bottom-navbar{
+	padding-top:8px;
+	padding-bottom:2px;
+	border-top: 1.5px solid #a9a9a991;
+	background-color:#fff;
+	/*position: absolute !important;*/
+}
+
+.fixed-bottom{
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  position: fixed !important;
+  z-index: 1000 !important;
+}
+
+.nav-icon{
+    width: 29%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 2px;
+    padding-top: 1px;
+}
+
+.active p{
+	color:#4dacf7 !important;
+}
+
+.nav-text{
+	text-align: center;
+    font-size: 0.8rem;
+    margin: 0;
+    color:#333;
+}
+
+.m-content{
+	margin-right:0px !important;
+	margin-left:0px !important;
+}
+.col-12, .col-3, .col-6 .col-5, .col-7{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+
+}
+a:hover, a:visited, a:link, a:active{
+	text-decoration: none !important;
+}
+
+.fixed-bottom{
+	z-index: 2 !important;
+}
+
+
+/******************** MONITOR PAGE *****************************/
+#status p{
+  text-align: center;
+}
+
+.head-title{
+  font-family: "Open Sans Condensed";
+  font-size: 23px;
+  float:left;
+}
+
+.bluetooth-btn{
+    float: right;
+    width: 21px;
+}
+
+.no-reaction{
+  color: #00d200;
+  text-align:center;
+}
+.mild-reaction{
+  color: #ff7500;
+  margin-left:40px;
+  float:left;
+}
+.severe-reaction{
+  color: #f10000;
+  margin-left:40px;
+  float:left;
+}
+
+#status #s-graph{
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+
+#status #s-circle{
+  margin: auto;
+  position: absolute;
+  top: 95px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 38%;
+}
+
+#status #spo2-label{
+  font-family: "Open Sans Condensed";
+  position: absolute;
+  bottom: 26%;
+  text-align: center;
+  width: 100%;
+  font-size: 13px;
+  font-weight: bold;
+  color: #676767;
+}
+
+#status #spo2-val{
+  font-family: "Open Sans Condensed";
+  position: absolute;
+  bottom: 32%;
+  text-align: center;
+  width: 100%;
+  font-size: 25px;
+  font-weight: bold;
+  color: #676767;
+}
+
+#status-content{
+    font-family: "Open Sans Condensed";
+    font-size: 30px;
+}
+
+#s-arrow{
+  width: 64%;
+}
+
+#status-result{
+  padding-top:40px;
+  padding-bottom:5px;
+}
+
+#home-stats{
+  padding-top:10px;
+}
+
+.home-stats-val{
+  font-family: "Open Sans Condensed";
+  font-size: 1.8rem;
+  color: #676767;
+  margin-bottom: 0.5rem;
+}
+
+.home-stats-label{
+  color: #676767;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+
+/********************* ADD PAGE ******************************/
+
+.add{
+	display: none;
+}
+
+#add-symptoms{
+	padding-bottom:50px;
+}
+#symps p{
+    padding-top: 3px;
+}
+
+/*sliders*/
+.rangeslider, input[type='range'] {
+  max-width: 400px;
+}
+.rangeslider__ruler {
+  cursor: pointer;
+  font-size: .5em;
+  padding-bottom: 4px;
+  /*margin: 9px 24px 0 9px;*/
+  margin: 9px -2px 0 9px;
+  position: relative;
+  top: 100%;
+  text-align: justify;
+}
+.rangeslider__ruler:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+.rangeslider--horizontal{
+	height: 10px !important;
+	/*width: 92% !important;*/
+    width: 108% !important;
+    margin-top:9px;
+}
+
+.rangeslider--horizontal .rangeslider__handle{
+	width: 25px;
+    height: 25px;
+    top: -7px !important;
+}
+
+.rangeslider__handle:after{
+	width: 8px !important;
+    height: 8px !important;
+}
+
+.hide_me{
+	display: none;
+}
+
+.rangeslider__fill{
+	background:#4dacf7 !important;
+}
+
+/**** STATUS PAGES *****/
+#reaction-header{
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  padding-top: 10px;
+  color:#333;
+  margin-bottom: 1.6rem;
+}
+
+#reaction-steps li{
+  font-size: 1.2em;
+  margin-bottom: 0.8em;
+  color: #333;
+}
+
+#reaction-face{
+  width: 180px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 28px;
+  padding-bottom:100px;
+}
+
+/***** BLUETOOTH PAGE ******/
+
+#ble-header{
+  text-align: center;
+  font-family: "Open Sans Condensed";
+  font-size: 23px !important;
+  color: #444;
+}
+
+#bluetooth-p{
+    font-family: "Helvetica Neue", arial;
+    font-weight: lighter;
+    color: #676767;
+}
+
+#bluetooth-p h1 {
+    text-align: center;
+}
+
+#bluetooth-p h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+#bluetooth-p button {
+    margin: 15px;
+    -webkit-appearance:none;    
+    font-size: 1.2em;
+}
+
+#refreshButton{
+    background-color: transparent;
+    border: none;
+}
+
+#disconnectButton{
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#bleWarning{
+    font-size: 1.2rem;
+}
+
+#bluetooth-p input[type=range] {
+    width: 100%;
+}
+
+#connectPage {
+    text-align:center;
+}
+
+#connectedPage {
+    text-align:center;
+    font-size: 2em;
+}
+
+#connectedPage button {
+    font-size: 0.6em !important; /* undo 2em from parent */
+}
+
+#bluetooth-p ul {
+    list-style: none;
+    border-bottom: 1px solid #d3d3d3;    
+    text-align: left;
+}
+
+#bluetooth-p li {
+    margin-left: -40px;
+    padding: 5px;
+    padding-left: 17px;        
+    padding-top: 10px;
+    min-height: 50px;
+    border-top: 1px solid #d3d3d3;    
+    font-size: 0.9em;
+}
+
+#bluetooth-p button {
+    -webkit-appearance: none;
+    font-size: 1.5em;
+    border-radius: 0;
+}
+
+#resultDiv {
+    font: 16px "Source Sans", helvetica, arial, sans-serif;
+    font-weight: 200;
+    display: block;
+    -webkit-border-radius: 6px;
+    width: 100%;
+    height: 140px;
+    text-align: left;    
+    overflow: auto;
+}
+
+/***********/
+
+.fa-question-circle{
+    margin-left: 6px;
+    fill-opacity: 0.7;
+    padding-top: 4px;
+    margin-bottom: 0.8px;
+}
+
+#my-symptoms #wheezing, #my-symptoms #nausea-discomfort, #my-symptoms #itchy-body, #my-symptoms #itchy-mouth, #my-symptoms #sneezing, #my-symptoms #itchy-nose, #my-symptoms #diarrhea, #my-symptoms #repetitive-coughing, #my-symptoms #short-of-breath, #my-symptoms #cramping-abdominal, #my-symptoms #vomitting, #my-symptoms #weak-pulse, #my-symptoms #dizzy, #my-symptoms #pale-or-blue, #my-symptoms #faint, #my-symptoms #tight-throat, #my-symptoms #trouble-breathing, #my-symptoms #skin-redness, #my-symptoms #hives, #my-symptoms #lips-swelling, #my-symptoms #tongue-swelling{
+	display: none;
+}
+
+
+
+

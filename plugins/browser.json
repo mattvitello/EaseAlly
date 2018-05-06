@@ -1,0 +1,52 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-ble-central": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.ease.ally"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-device-motion": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-device-orientation": {
+      "PACKAGE_NAME": "com.ease.ally"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.ease.ally"
+    }
+  }
+}

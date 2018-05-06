@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:* gap://* tel:* 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/hover-min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/rangeslider.min.css" />
+    <title>EaseAlly</title>
+    <!--<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>-->
+</head>
+
+<body>
+    <div class="app">
+
+        <!--bottom nav -->
+        <nav class="bottom-navbar fixed-bottom">
+            <div class="container-fluid h-100" style="padding-left:0px; padding-right:0px;">
+                <div class="row m-content">
+                    <div class="col-3 active" id="monitor-container">
+                        <a id="monitor-tab">
+                            <img class="nav-icon" id="monitor-icon" src="img/monitor-active.png"/>
+                            <p class="nav-text">Monitor</p>
+                        </a>
+                    </div>
+                    <div class="col-3" id="add-container">
+                        <a id="add-tab">
+                            <img class="nav-icon" id="add-icon" src="img/add.png"/>
+                            <p class="nav-text">Add</p>
+                        </a>
+                    </div>
+                    <div class="col-3" id="history-container">
+                        <a id="history-tab">
+                            <img class="nav-icon" id="history-icon" src="img/history.png"/>
+                            <p class="nav-text">History</p>
+                        </a>
+                    </div>
+                    <div class="col-3" id="settings-container">
+                        <a id="settings-tab">
+                            <img class="nav-icon" id="settings-icon" src="img/settings.png"/>
+                            <p class="nav-text">Settings</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!--monitor tab-->
+        <div id="monitor-p">           
+            <div class="container-fluid h-100" style="padding:10px;">
+                <div class="row m-content">
+                    <div class="col-12">
+                        <h6 class="head-title">DASHBOARD</h6>
+                        <a class="bluetooth-btn" style="padding: 15px;padding-left: 35px;margin-bottom: -15px;margin-right: -10px;margin-top: -15px;"><img class="bluetooth-btn" src="img/bluetooth-no.png"/></a>
+                    </div>
+                    <div id="status" class="col-12" style="padding-top:17px">
+                        <img id="s-graph" src="img/monitor/good-status.png"/>
+                        <img id="s-circle" src="img/monitor/good-spo2.png"/>
+                        <div id="spo2-label">Sp02</div>
+                        <div id="spo2-val">97.1</div>
+                    </div>
+                    <div class="col-12" id="status-result">
+                        <p class="no-reaction" id="status-content"></p>
+                        <a style="padding-top: 9px;float: right;margin-right: 40px;"><img id="s-arrow" src="img/monitor/mild-arrow.png"/></a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-bottom:1px solid #333"></div>
+            <div class="container-fluid h-100" style="padding:10px; text-align: center">
+                <div class="row m-content" id="home-stats">
+                    <div class="col-4" style="border-right: 1px solid #000;">
+                        <p class="home-stats-val" id="num-symps">0</p>
+                        <p class="home-stats-label"> Symptoms </p>
+                    </div>
+                    <div class="col-4" style="border-right: 1px solid #000;">
+                        <p class="home-stats-val">97.8</p>
+                        <p class="home-stats-label"> Avg Sp02 </p>
+                    </div>
+                    <div class="col-4" style="">
+                        <p class="home-stats-val">3</p>
+                        <p class="home-stats-label"> Tot. Reactions </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--add tab-->
+        <div id="add-p">
+            <div class="container-fluid h-100" style="padding:10px;">
+                <div class="row m-content">
+                    <div class="col-12">
+                          <div class="form-check" style="margin-bottom:1.5rem;margin-top:0.5rem;">
+                            <input type="checkbox" class="form-check-input" style="margin-top: .2rem;width: 18.5px;height: 18.5px;margin-left: 0rem;">
+                            <label class="form-check-label" style="padding-left: 2.3rem;">I have injested my allergen</label>
+                          </div>
+                          <hr>
+                    </div>
+                </div>
+                <div class="row m-content">
+                    <div class="col-12">
+                        <div id="error"></div>
+                        <h6 style="margin-bottom:2rem;">MY SYMPTOMS</h6>
+                    </div>
+                </div>
+                <div id="my-symptoms">
+                    <div class="row m-content" id="tongue-swelling">
+                        <div class="col-7" id="symps">
+                            <p>Tongue Swelling<i class="far fa-question-circle"></i></p>
+                        </div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="lips-swelling">
+                        <div class="col-7" id="symps"><p>Lips Swelling<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="hives">
+                        <div class="col-7" id="symps"><p>Hives<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="skin-redness">
+                        <div class="col-7" id="symps"><p>Skin Redness<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="trouble-breathing">
+                        <div class="col-7" id="symps"><p>Trouble Breathing<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="tight-throat">
+                        <div class="col-7" id="symps"><p>Tight Throat<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="faint">
+                        <div class="col-7" id="symps"><p>Faint<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="pale-or-blue">
+                        <div class="col-7" id="symps"><p>Pale or Blue<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="dizzy">
+                        <div class="col-7" id="symps"><p>Dizzy<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="weak-pulse">
+                        <div class="col-7" id="symps"><p>Weak Pulse<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="vomitting">
+                        <div class="col-7" id="symps"><p>Vomiting<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="cramping-abdominal">
+                        <div class="col-7" id="symps"><p>Cramping Abdominal<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="short-of-breath">
+                        <div class="col-7" id="symps"><p>Short of Breath<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="repetitive-coughing">
+                        <div class="col-7" id="symps"><p>Repetitive Coughing<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="diarrhea">
+                        <div class="col-7" id="symps"><p>Diarrhea<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="itchy-nose">
+                        <div class="col-7" id="symps"><p>Itchy Nose<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="sneezing">
+                        <div class="col-7" id="symps"><p>Sneezing<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="itchy-mouth">
+                        <div class="col-7" id="symps"><p>Itchy Mouth<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="itchy-body">
+                        <div class="col-7" id="symps"><p>Itchy Body<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="nausea-discomfort">
+                        <div class="col-7" id="symps"><p>Nausea / Discomfort<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="wheezing">
+                        <div class="col-7" id="symps"><p>Wheezing<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row m-content">
+                    <div class="col-12">
+                        <h6 style="margin-bottom:2rem;">ADD SYMPTOMS</h6>
+                    </div>
+                </div>
+                <div id="add-symptoms">
+                    <div class="row m-content" id="tongue-swelling">
+                        <div class="col-7" id="symps">
+                            <p>Tongue Swelling<i class="far fa-question-circle"></i></p>
+                        </div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="lips-swelling">
+                        <div class="col-7" id="symps"><p>Lips Swelling<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="hives">
+                        <div class="col-7" id="symps"><p>Hives<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="skin-redness">
+                        <div class="col-7" id="symps"><p>Skin Redness<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="trouble-breathing">
+                        <div class="col-7" id="symps"><p>Trouble Breathing<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="tight-throat">
+                        <div class="col-7" id="symps"><p>Tight Throat<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="faint">
+                        <div class="col-7" id="symps"><p>Faint<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="pale-or-blue">
+                        <div class="col-7" id="symps"><p>Pale or Blue<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="dizzy">
+                        <div class="col-7" id="symps"><p>Dizzy<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="weak-pulse">
+                        <div class="col-7" id="symps"><p>Weak Pulse<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="vomitting">
+                        <div class="col-7" id="symps"><p>Vomiting<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="cramping-abdominal">
+                        <div class="col-7" id="symps"><p>Cramping Abdominal<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="short-of-breath">
+                        <div class="col-7" id="symps"><p>Short of Breath<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="repetitive-coughing">
+                        <div class="col-7" id="symps"><p>Repetitive Coughing<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="diarrhea">
+                        <div class="col-7" id="symps"><p>Diarrhea<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="itchy-nose">
+                        <div class="col-7" id="symps"><p>Itchy Nose<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="sneezing">
+                        <div class="col-7" id="symps"><p>Sneezing<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="itchy-mouth">
+                        <div class="col-7" id="symps"><p>Itchy Mouth<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="itchy-body">
+                        <div class="col-7" id="symps"><p>Itchy Body<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="nausea-discomfort">
+                        <div class="col-7" id="symps"><p>Nausea / Discomfort<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-content" id="wheezing">
+                        <div class="col-7" id="symps"><p>Wheezing<i class="far fa-question-circle"></i></p></div>
+                        <div class="col-5">
+                            <div>
+                                <input type="range" min="0" max="2" step="1" value="0">
+                                <div class="rangeslider__ruler">0 1 2 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mild-info-p">           
+            <div class="container-fluid h-100" style="padding:10px;border-bottom: 1px solid #333;">
+                <div class="row m-content">
+                    <div class="col-12" style="width: 100%;text-align: center;">
+                        <a style="float: left;padding: 10px;margin-bottom: -10px;margin-right: -10px;margin-left: 5px;margin-top: -10px;"><img id="back-btn" src="img/back-arrow.png" style="width: 22px;"/></a>
+                        <div style="width: 100px;display: inline-block;">
+                            <h6 class="head-title" style="text-align: center;padding-right: 37px;color:#333">STATUS</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid h-100" style="padding:10px;">
+                <div class="row m-content">
+                    <div class="col-12">
+                        <p id="reaction-header">MILD REACTION</p>
+                        <ol id="reaction-steps">
+                            <li>Give antihistamines, if ordered by physician.</li>
+                            <li>Monitor symptoms very closely for any changes.</li>
+                        </ol>
+                        <img id="reaction-face" src="img/monitor/mild-face.png"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="severe-info-p">           
+            <div class="container-fluid h-100" style="padding:10px;border-bottom: 1px solid #333;">
+                <div class="row m-content">
+                    <div class="col-12" style="width: 100%;text-align: center;">
+                        <a style="float: left;padding: 10px;margin-bottom: -10px;margin-right: -10px;margin-left: 5px;margin-top: -10px;"><img id="back-btn" src="img/back-arrow.png" style="width: 22px;"/></a>
+                        <div style="width: 100px;display: inline-block;">
+                            <h6 class="head-title" style="text-align: center;padding-right: 37px;color:#333">STATUS</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid h-100" style="padding:10px;">
+                <div class="row m-content">
+                    <div class="col-12">
+                        <p id="reaction-header">SEVERE REACTION</p>
+                        <ol id="reaction-steps">
+                            <li>Inject epinephrine immediately.</li>
+                            <li>Call 911. Request ambulence with epinephrine.</li>
+                            <li>Consider administering additional medications (antihistamines or inhaler if asthma).</li>
+                            <li>Lay flat and raise legs. If breathing is difficult or vommiting, sit up or lie on your side.</li>
+                            <li>If symptoms do not improve or symptoms return after 5 minutes of last does of epinephrine, give another dose.</li>
+                            <li>Remain in ER for 4+ hours because symptoms may return.</li>
+                        </ol>
+                        <img id="reaction-face" src="img/monitor/severe-face.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bluetooth-p">
+            <div id="connectPage">
+                <div class="container-fluid h-100" style="padding:10px;border-bottom: 1px solid #444;">
+                    <div class="row m-content">
+                        <div class="col-12" style="width: 100%;text-align: center;">
+                            <a style="float: left;padding: 10px;margin-bottom: -10px;margin-right: -10px;margin-left: 5px;margin-top: -10px;"><img id="back-btn" src="img/back-arrow.png" style="width: 22px;"/></a>
+                            <div style="width: 164px;display: inline-block;">
+                                <h6 class="head-title" style="text-align: center;padding-right: 37px;color:#333">SELECT DEVICE</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul id="deviceList" style="z-index: 50000">
+                </ul>
+                <p id="bleWarning">Turn your bluetooth on and refresh the page</p>                    
+                <a class="hvr-pop"><button id="refreshButton"><img src="img/refresh.png"/></button></a>
+            </div>
+            <div id="connectedPage">
+                <div class="container-fluid h-100" style="padding:10px;border-bottom: 1px solid #444;">
+                    <div class="row m-content">
+                        <div class="col-12" style="width: 100%;text-align: center;">
+                            <a style="float: left;padding: 10px;margin-bottom: -10px;margin-right: -10px;margin-left: 5px;margin-top: -10px;"><img id="back-btn" src="img/back-arrow.png" style="width: 22px;"/></a>
+                            <div style="width: 164px;display: inline-block;">
+                                <h6 class="head-title" style="text-align: center;padding-right: 37px;color:#333">BLUEFRUIT LE</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p id="reaction-header" style="margin-top: 50px;">CONNECTED</p>
+                <p id="status"></p>
+                <div id="resultDiv"></div>
+                <div></div>
+                <button id="disconnectButton">DISCONNECT</button>
+            </div>
+        </div>
+
+        <div id="history-p">
+            <div class="container-fluid h-100" style="padding:10px;">
+                <div class="row m-content">
+                    <div class="col-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings-p">
+            <div class="container-fluid h-100" style="padding:10px;">
+                <div class="row m-content">
+                    <div class="col-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>  
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/rangeslider.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
